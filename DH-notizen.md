@@ -38,6 +38,9 @@ Zusammenfassung/Überblick Diffusion Modelle
 
 # Datasets
 
+Künstler Excel Datensatz:
+https://docs.google.com/spreadsheets/d/14xTqtuV3BuKDNhLotB_d1aFlBGnDJOY0BRXJ8-86GpA/edit#gid=0
+
 https://huggingface.co/datasets/poloclub/diffusiondb --> 1.8 Millionen Prompts 
 
 --> dieses nutzen wir
@@ -49,3 +52,18 @@ https://huggingface.co/datasets/Gustavosta/Stable-Diffusion-Prompts --> cirka 80
  
 
 https://github.com/bartman081523/stable-diffusion-discord-messages --> 1.9 Millionen vom Stable diffusion discord 
+
+
+# Anderer Pandas Code:
+
+https://github.com/geschnee/big_data/blob/main/classifier_dns_exfilt/preprocessing/extract_features.py
+
+
+
+# Outlook Dokumente
+
+## Expose
+https://onedrive.live.com/edit.aspx?resid=DD4C24BF0899AA12!102949&ithint=file%2cdocx&authkey=!AOlqY6erJHtMzdg
+
+## Arbeit
+https://onedrive.live.com/edit.aspx?resid=DD4C24BF0899AA12!103055&ithint=file%2cdocx&authkey=!ABObQWICXRkHdc8
