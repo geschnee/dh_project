@@ -35,6 +35,15 @@ https://arxiv.org/abs/2209.00796
 Zusammenfassung/Überblick Diffusion Modelle
 
 
+# Methoden
+
+## Association Rules
+
+https://medium.com/@mervetorkan/association-rules-with-python-9158974e761a
+
+## Cooccurences
+
+
 
 # Datasets
 
