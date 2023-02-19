@@ -43,6 +43,99 @@ https://medium.com/@mervetorkan/association-rules-with-python-9158974e761a
 
 ## Cooccurences
 
+Covariance vs Correlation
+
+Correlation ist sowas wie die normalisierte Covariance
+Correlation ist im Interval -1 (beide Variablen sind perfekt/total negativ korreliert) und 1 (perfekt/total positiv korreliert)
+0 bedeutet keine Correlation
+
+https://www.mygreatlearning.com/blog/covariance-vs-correlation/
+
+
+TODO Zeitfenster analysieren
+(wie gross ist es?)
+
+
+
+
+
+prompt colors analysieren
+color - artist zusammenhang analysieren
+
+Klimt hat z.B. Gold als Lieblingsfarbe
+
+Negation analysieren (verwenden Leute "not" oder "no") --> wenn ja, weitere Analysen
+
+Topic Modelling ueber die gesamten Prompts und dann gucken, ob unterschiedliche Kuenstler mit unterschiedlichen Topics verwendet werden.
+
+
+typische Begriffe fuer Illumination einer Szene:
+- sunset
+- environmental windlights
+- midday
+- sunrise
+
+
+Stilbegriffe:
+- acrillic
+- aquarel
+- watercolor
+- oil
+- kanvas
+- glas
+- graffitti
+- comic
+- manga
+- anime
+
+
+der Zeitraum ist nur 2 Wochen
+--> es folgt die Frage:
+Ist der Datensatz ein Zeitraum oder ein Zeitpunkt?
+Wie herausfinden? Unterscheiden sich die Daten innerhald der Zeit?
+"Sind alle Tage gleich?"
+
+-->
+Analyse der Woerter mit den Kuenstlern
+-->
+oh Warhol, kommt ja oft fuer Comic vor
+
+
+
+Hypothese:
+werden die Namen der Top Kuenstler verwendet um die generelle QUalitaet zu erhoehen, oder weil man deren Stil moechte
+
+
+-->
+Aussenwahrnehmung vs Communitywahrnehmung
+Top 100 Kuenstler in der echten Welt mit den Top aus dem Datensatz vergleichen
+
+
+-->
+most popular seed value --> seed reuse is done?
+
+
+--> iterative Arbeit, User welche einen Seed explizit nutzen
+
+
+--> User Analyse: Power user vs Casual user
+x Prozent der User machen y Prozent der Prompts
+--> Unterscheiden sich die Power User von den Casual Usern in dem Promptverhalten?
+--> nutzen die Poweruser immer Greg Rutkowski oder nicht
+
+
+User und Anzahl der erstellten Prompts:
+89bebf4f200a853ac9a7b4dfec1edb160ade299fd60db12d0752bbfd882c6f45    224010
+deleted-account                                                      93543
+481f5d1579a33041518382518a5e108cfc1fea95f880d081023f533eb1afd82a     49577
+5477db661bbe6ff9fd509daf812fe50af4b6216f2b296c3cbf91c6b9e528fdce     38137
+
+
+Warum kommt der Seed 150 am haeufigsten vor?
+die anderen Seeds sind hohe Zahlen:
+print(df_large.seed.value_counts())
+
+Seed 150 kommt jeden Tag vor
 
 
 # Datasets
