@@ -52,10 +52,10 @@ Correlation ist im Interval -1 (beide Variablen sind perfekt/total negativ korre
 https://www.mygreatlearning.com/blog/covariance-vs-correlation/
 
 
-TODO Zeitfenster analysieren
-(wie gross ist es?)
 
-
+Artist prompt similarity
+1. haben prompt in denen ein Künstler erwähnt wird eine gewisse Verteilung (z.B. Erwähnung von Dark fantasy oder Elfen bei Greg)
+2. gibt es Künstler mit ähnlichen Verteilungen (haben diese Künstler Gemeinsamkeiten z.B. sind Internetkünstler)
 
 
 
@@ -92,7 +92,7 @@ Stilbegriffe:
 der Zeitraum ist nur 2 Wochen
 --> es folgt die Frage:
 Ist der Datensatz ein Zeitraum oder ein Zeitpunkt?
-Wie herausfinden? Unterscheiden sich die Daten innerhald der Zeit?
+Wie herausfinden? Unterscheiden sich die Daten innerhalb der Zeit?
 "Sind alle Tage gleich?"
 
 -->
@@ -102,8 +102,10 @@ oh Warhol, kommt ja oft fuer Comic vor
 
 
 
-Hypothese:
-werden die Namen der Top Kuenstler verwendet um die generelle QUalitaet zu erhoehen, oder weil man deren Stil moechte
+# mögliche Hypothese:
+werden die Namen der Top Kuenstler verwendet um die generelle Qualitaet zu erhoehen, oder weil man deren Stil moechte?
+noch konkreter:
+wird Greg Rutkowski erwähnt um die Qualität zu steigern oder um Dark Fantasy zu bekommen
 
 
 -->
