@@ -108,6 +108,19 @@ noch konkreter:
 wird Greg Rutkowski erwähnt um die Qualität zu steigern oder um Dark Fantasy zu bekommen
 
 
+Frage 1
+
+Do diffusion model users mention the top artists, such as "greg Rutkowski" and "trending on artstation" to increase the quality of the generated image or to get a specific style?
+
+
+Hypothesis: Diffusion model users mention the top artists mostly to increase the quality of the generated image.
+
+
+
+Do diffusion model users have a bias towards modern artists? Frage 2
+Do diffusion model users have a bias towards modern art-styles? Frage 3
+
+
 -->
 Aussenwahrnehmung vs Communitywahrnehmung
 Top 100 Kuenstler in der echten Welt mit den Top aus dem Datensatz vergleichen
