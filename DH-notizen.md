@@ -18,7 +18,8 @@ Untersuchung von 72000 Prompts und Formalisierung der Prompts
  - identifizieren Teile einer Prompt und ordnen die Tokens den Teilen zu
  - Topic extraction und Zuordnung der Wörter zu Topics mit GPT-3
 
-
+-----> rlated papers?
+https://scholar.google.de/scholar?q=related:31MZh9M2SWMJ:scholar.google.com/&scioq=What+is+in+a+Text-to-Image+Prompt:+The+Potential+of+Stable+Diffusion+in+Visual+Arts+Education&hl=de&as_sdt=0,5
 
 
 Generated Faces in the Wild: Quantitative Comparison of Stable Diffusion, Midjourney and DALL-E 2
@@ -102,7 +103,7 @@ oh Warhol, kommt ja oft fuer Comic vor
 
 
 
-# mögliche Hypothese:
+# Hypothese
 werden die Namen der Top Kuenstler verwendet um die generelle Qualitaet zu erhoehen, oder weil man deren Stil moechte?
 noch konkreter:
 wird Greg Rutkowski erwähnt um die Qualität zu steigern oder um Dark Fantasy zu bekommen
@@ -115,10 +116,34 @@ Do diffusion model users mention the top artists, such as "greg Rutkowski" and "
 
 Hypothesis: Diffusion model users mention the top artists mostly to increase the quality of the generated image.
 
+leichter und vielleicht einfacher zu beantworten:
+Diffusion model users mention the top artists when they want to create images that match the artists style and typical motives.
+oder
+Diffusion model users mention the top artists because they want to recreate their images.
 
 
 Do diffusion model users have a bias towards modern artists? Frage 2
 Do diffusion model users have a bias towards modern art-styles? Frage 3
+
+# Lösungsansätze Hypothese
+
+unterscheiden sich die Hypothesen in denen Greg Rutkowski erwähnt wird (abgesehen von der Erwähnung) signifikant von den anderen Hypothesen?
+--> wenn nein, er wird ohne Grund erwähnt? kann man das so sagen?
+
+LDA Topic Modelling auf alle prompts machen (stopwords entfernen), unterscheiden sich die prompts mit Greg Rutkowski von den prompts ohne?
+* dazu gucken wir uns die durchschnittliche Topic verteilung an und vergleichen mit 
+    * https://de.wikipedia.org/wiki/Kolmogorow-Smirnow-Test vergleich von einzelnen Variablen (nicht geeignet für eine komplette Topicverteilung) (genau wie jeder andere "bekannt" Test wie t Test)
+    * T Test oder ANova für die einzelnen Topics
+    * Anova
+    * abgefahrener Test https://www.slac.stanford.edu/econf/C030908/papers/MOET001.pdf
+    * Überblick über statistische Tests https://stats.oarc.ucla.edu/spss/whatstat/what-statistical-analysis-should-i-usestatistical-analyses-using-spss/
+
+gibt es ein "Greg Rutkowski" Topic?
+
+
+
+# weitere mögliche Hypothesen
+
 
 
 -->
