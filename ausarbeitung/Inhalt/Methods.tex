@@ -15,12 +15,14 @@ The primary dataset contains 1.8 million prompts and metadata as mentioned in \r
 
 \subsection{Detecting artists}
 
+
 From the dataset \ref{cha:Artist Dataset} we have a large set of artist names and pseudonyms. Each prompt is analysed and all mentioned artists from the dataset are extracted via exact match of their full name or pseudonym.
 
 The first iteration of this preprocessing step did not include the analysis of pseudonyms. After analysing the resulting data, I found that many artists were both mentioned by their real name and their pseudonym in many prompts. I thus decided to include the pseudonyms in the analysis.
 
 
 \subsection{Detecting styles}
+
 
 Similarly to the extraction of artists, I extracted the styles from the prompts via exact match. As a reference dataset of styles I used the list of 192 styles \ref{cha:Styles Dataset}. XXX of the 192 styles were found in the prompts.
 
@@ -65,7 +67,6 @@ Since we express the style mentions as proportions, \(S_i\) and \(S_j\) are alwa
 \(C_{ij}\) is the sum of the lesser values for styles in common between the compared prompts:
 
 \[ C_{ij} = \sum_{s \in Styles} min(i_s,j_s)\]
-
 
 \subsection{Comparing artists / ranking them}
 
