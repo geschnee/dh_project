@@ -10,76 +10,34 @@ def read_lines_as_list(filename):
     
     return result
 
-def artist_included_fuzzy(ga, parts, similarity_threshold):
-    artist_components = [x for x in re.split(';|,|\.| |:|-', ga) if len(x)>0]
-    components_found = 0
-    for ac in artist_components:
-        for p in parts:
-            # print(f'{p} {ac} {SM(None, p, ac).ratio()}')
-            if SM(None, p, ac).ratio() >= similarity_threshold: ## fuzzy comparison possible here
-                components_found += 1
-                break
-    if components_found == len(artist_components):
-        return True
-    else:
-        return False
 
-import re
-def extract_artists_fuzzy(str, given_artists, similarity_threshold):
+
+def extract_artists_exact(prompt, artist_dict):
+    # artist_dict: 
+    # key = artist copy_paste_name
+    # value = artist names and pseudonyms as list
+    
     artists = []
-    parts = [x.lower() for x in re.split(';|,|\.| |:|-', str) if len(x)>0]
-    #print(parts)
-    for ga in given_artists:
-        if artist_included_fuzzy(ga, parts, similarity_threshold):
-            artists.append(ga)
+    prompt = prompt.lower()
+    
+    for cp_name, aliases in artist_dict.items():
+        for name in aliases:
+            if name.lower() in prompt:
+                artists.append(cp_name)
+                continue
     
     return artists
 
-def extract_artists_exact(str, given_artists):
-    artists = []
+
+def extract_styles_exact(str, style_names):
+    styles = []
     str = str.lower()
     
-    for gp in given_artists:
-        if gp in str:
-            artists.append(gp)
+    for sn in style_names:
+        if sn in str:
+            styles.append(sn)
     
-    return artists
-
-
-
-def extract_artists_fuzzy_test():
-    given_artists = ["greg rutkowsky", "Vincent van Gogh", "Banksy", "Salvador Dalí", "Hans-Werner Sahm"]
-    given_artists = [x.lower() for x in given_artists]
-    
-
-    similarity_threshold = 0.8
-
-    assert extract_artists_fuzzy("artwork by greg rutkowsky", given_artists, similarity_threshold) == ["greg rutkowsky"], extract_artists_fuzzy("artwork by greg rutkowsky", given_artists, similarity_threshold)
-    
-    assert extract_artists_fuzzy("artwork, by greg rutzky", given_artists, similarity_threshold) == [], extract_artists_fuzzy("artwork, by greg rutzky", given_artists, similarity_threshold)
-   
-    search = extract_artists_fuzzy("artwork by greg rutkowsky and Salvador Dalí", given_artists, similarity_threshold)
-    assert search == ["greg rutkowsky", "salvador dalí"], f'search is {search}'
-    
-    search = extract_artists_fuzzy("artwork by greg rutkowsky and Salvador Dalí and Banksy", given_artists, similarity_threshold)
-    assert search == ["greg rutkowsky", "banksy", "salvador dalí"], f'search is {search}'
-   
-    # TYPO: "bansky" instead of "banksy"
-    search = extract_artists_fuzzy("bansky", given_artists, similarity_threshold)
-    assert search == ["banksy"], f'search is {search}'
-    
-    search = extract_artists_fuzzy("Hans-Werner Sahm", given_artists, similarity_threshold)
-    assert search == ["hans-werner sahm"], f'search is {search}'
-    
-    # Missing dash for doublename
-    search = extract_artists_fuzzy("Hans Werner Sahm", given_artists, similarity_threshold)
-    assert search == ["hans-werner sahm"], f'search is {search}'
-    
-    # TYPO
-    search = extract_artists_fuzzy("painting by Vinncent van Gogh", given_artists, similarity_threshold)
-    assert search == ["vincent van gogh"], f'search is {search}'
-
-    print("All tests passed")
+    return styles
 
 def artist_in_list(l, artist):
     l = l.tolist()
@@ -104,6 +62,18 @@ def exact_match_dataframe(df, name):
     result = result.loc[result['included'] == True]
     return result
 
+def exact_match_dataframe_style(df, name):
+    name = name.lower()
+    result = df.copy()
+   #result['included'] = result['artists'].map(
+   #    lambda artists: artist_in_list(artists, name))
+    result['included'] = result['styles'].map(
+       lambda artists: True if name in artists.tolist() else False)
+    #print(result)
+    assert "included" in result.columns, f'included is not in {result.columns}'
+   #print(f'result columns {result.columns}')
+    result = result.loc[result['included'] == True]
+    return result
 
 
 def search_prompt_splits(df, str):
@@ -117,7 +87,5 @@ def search_prompt_splits(df, str):
     result = result.loc[result['included'] == True]
     return result
 
-if __name__ == "__main__":
-    extract_artists_fuzzy_test()
 
 
