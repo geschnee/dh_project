@@ -31,10 +31,10 @@ def extract_artists_exact(prompt, artist_dict):
 
 def extract_styles_exact(str, style_names):
     styles = []
-    str = str.lower()
+    #str = str.lower()
     
     for sn in style_names:
-        if sn in str:
+        if sn.lower() in str:
             styles.append(sn)
     
     return styles
@@ -50,7 +50,7 @@ def artist_in_list(l, artist):
         return False
     
 def exact_match_dataframe(df, name):
-    name = name.lower()
+    # name = name.lower()
     result = df.copy()
    #result['included'] = result['artists'].map(
    #    lambda artists: artist_in_list(artists, name))
@@ -63,12 +63,14 @@ def exact_match_dataframe(df, name):
     return result
 
 def exact_match_dataframe_style(df, name):
-    name = name.lower()
+    assert 'styles' in df.columns
+    
+    #name = name.lower()
     result = df.copy()
    #result['included'] = result['artists'].map(
    #    lambda artists: artist_in_list(artists, name))
     result['included'] = result['styles'].map(
-       lambda artists: True if name in artists.tolist() else False)
+       lambda styles: True if name in styles else False)
     #print(result)
     assert "included" in result.columns, f'included is not in {result.columns}'
    #print(f'result columns {result.columns}')

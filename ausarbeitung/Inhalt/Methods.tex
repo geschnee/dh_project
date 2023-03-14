@@ -2,7 +2,7 @@
 \label{cha:Methods}
 
 I want to disprove that the top mentioned artists are mentioned for their style. This would mean that they are less used for their own unique style but rather are added to prompts for other reasons.
-When artists are not mentioned for their own unique style, the prompts in which they are mentioned should closely resemble other prompts in which they are not mentioned. Artists that are selected for other reasons as their style should essentially be independent of the rest of a prompt.
+When artists are not mentioned for their own unique style, the prompts in which they are mentioned should closely resemble other prompts in which they are not mentioned. Artists that are selected for reasons other than their style should essentially be independent of the rest of a prompt.
 
 There are many different ways of measuring the similarity between prompts. Since we focuss on the analysis of styles in prompts, I will use direct references to styles as a way of quantifying the prompts. 
 % TODO maybe also some other measures as well? we got plenty
@@ -16,7 +16,7 @@ The primary dataset contains 1.8 million prompts and metadata as mentioned in \r
 \subsection{Detecting artists}
 
 
-From the dataset \ref{cha:Artist Dataset} we have a large set of artist names and pseudonyms. Each prompt is analysed and all mentioned artists from the dataset are extracted via exact match of their full name or pseudonym.
+From the dataset \ref{cha:Artist Dataset} we have a large set of artist names and pseudonyms. Each prompt is analysed and all mentioned artists from the dataset are extracted via exact match of their full name or pseudonym. The amount of mentions of an artist across the entire dataset is counted and indicates the artist's popularity.
 
 The first iteration of this preprocessing step did not include the analysis of pseudonyms. After analysing the resulting data, I found that many artists were both mentioned by their real name and their pseudonym in many prompts. I thus decided to include the pseudonyms in the analysis.
 
@@ -24,17 +24,30 @@ The first iteration of this preprocessing step did not include the analysis of p
 \subsection{Detecting styles}
 
 
-Similarly to the extraction of artists, I extracted the styles from the prompts via exact match. As a reference dataset of styles I used the list of 192 styles \ref{cha:Styles Dataset}. XXX of the 192 styles were found in the prompts.
+Similarly to the extraction of artists, the styles are extracted from the prompts via exact match. As a reference dataset of styles I used the list of 192 styles \ref{cha:Styles Dataset}. 185 of the 192 styles were found in the prompts.
 
-TODO numbers XXX
+
 
 
 \section{Characterizing the artists}
 
-Process of obtaining the distributions of the artists 
-- splitting the entire corpus into 'artist' and 'other'
+To characterize the usage of an artist in the prompts, all prompts where an artist is mentioned are extracted. This group of prompts will be called the artist corpus.
+The set of prompts, that do not contain an artist, are called the negative corpus. In all cases the negative corpora are smaller than the artist corpus, since no artist occurs in more than 50\% of the prompts.
+
+The artist corpus and the respective negative corpus are computed for every artist. Artists that are not mentioned in the dataset and artists, that do not have any style mentions in their corpus are excluded from the analysis. The artist corpus and the corresponding negative corpus are used to comparisons of the different artists.
+
+
+The mentioned styles in the artist corpus and negative corpus are grouped and counted. The counts are normalized to proportions using the total amount of style mentions to enable comparisons between the two corpora. \ref{example_image}
+ 
+% TODO link to a proper example
+
 
 \section{Comparing Style distributions}
+
+Artists with similar corpus and negative corpus, have a smaller influence on the prompts they are used in. These artists are independent from the styles mentioned in the prompts.
+To evaluate this similarity I use the Bray-Curtis dissimilarity. 
+With these dissimilarity values we can examine if there is a relation between the popularity of an artist and the artist's independence from the styles mentioned in the prompts.
+
 
 \subsection{Bray-Curtis dissimilarity}
 
@@ -68,11 +81,20 @@ Since we express the style mentions as proportions, \(S_i\) and \(S_j\) are alwa
 
 \[ C_{ij} = \sum_{s \in Styles} min(i_s,j_s)\]
 
-\subsection{Comparing artists / ranking them}
+Figure \ref{fig:lowest_dissimilarity} shows the calculation of a dissimilarity value. The red bars represent the shares, that the artist's style distribution has in common with the style distribution of the negative prompt. The summation of all the red bars equates to \(C_{ij}\). 
 
-Correlation of rank and dissimilarity prüfen
-kann man das mit einem statistischen Test checken???
-TODO
+\subsection{Evaluating the observed dissimilarity}
+
+The observed dissimilarity values will be analysed with Spearman's rank correlation coefficient. This correlation coefficient is chosen, since it is appropriate for comparing two ranked variables and does not require the variables to be normally distributed. The coeffcient indicates, whether the artist's rank in the list of top mentioned artists is correlated with the dissimilarity of the style distributions. The coefficient produces the \(r_s\) value between -1 and 1, where 1 indicates a perfect positive correlation, 0 indicates no correlation and -1 indicates a perfect negative correlation.
+
+To check the significance of the correlation, we will use the \(p\) value of the Spearman's rank correlation coefficient. This \(p\) value is for a hypothesis test, where the null hypothesis is that the two variables are not correlated.
+
+
+The observed dissimilarity values will be visualized as well.
+
+% if the p value is small, we have to reject the null hypothesis
+
+
 
 
 %TODO also use chi-square test to check the differences for significance?

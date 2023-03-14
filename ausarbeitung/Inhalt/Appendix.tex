@@ -1,9 +1,17 @@
-\section*{Appendix}
+% \section*{Appendix}
+\addchap{Appendix}
 \label{sec:Appendix}
+
+\section{Code}
+
+The code of this project is available publicly at https://github.com/geschnee/dh\_project
+
+\section{Tables and Figures}
+
 
 \begin{table}[h]
     \begin{center}
-        \begin{tabular}{||c c c||} 
+        \begin{tabular}{||c c p{0.6\linewidth}||} 
          \hline
          Column Name & Type & Description \\ [0.5ex] 
          \hline\hline
@@ -19,13 +27,13 @@
          \hline
          cfg & float32 & Guidance scale (hyperparameter). \\ 
          \hline
-         sampler & uint8 & Sampler method (hyperparameter). Mapping: 1: "ddim", 2: "plms", 3: "k\_euler", 4: "k\_euler\_ancestral", 5: "k\_heun", 6: "k\_dpm\_2", 7: "k\_dpm\_2\_ancestral", 8: "k\_lms", 9: "others". \\ 
+         sampler & uint8 & Sampler method (hyperparameter). Mapping: 1: 'ddim', 2: 'plms', 3: 'k\_euler', 4: 'k\_euler\_ancestral', 5: 'k\_heun', 6: 'k\_dpm\_2', 7: 'k\_dpm\_2\_ancestral', 8: 'k\_lms', 9: 'others'. \\ 
          \hline
          width & uint16 & Image width. \\ 
          \hline
          height	& uint16 & Image height. \\ 
          \hline
-         user\_name & string & The unique discord ID's SHA256 hash of the user who generated this image. For example, the hash for xiaohk\#3146 is e285b7ef63be99e9107cecd79b280bde602f17e0ca8363cb7a0889b67f0b5ed0. "deleted\_account" refer to users who have deleted their accounts. None means the image has been deleted before we scrape it for the second time. \\ 
+         user\_name & string & The unique discord ID's SHA256 hash of the user who generated this image. For example, the hash for xiaohk\#3146 is e285b7ef63be99e9107cecd79b280bde 602f17e0ca8363cb7a0889b67f0b5ed0. 'deleted\_account' refer to users who have deleted their accounts. None means the image has been deleted before we scrape it for the second time. \\ 
          \hline
          timestamp & timestamp & UTC Timestamp when this image was generated. None means the image has been deleted before we scrape it for the second time. Note that timestamp is not accurate for duplicate images that have the same prompt, hypareparameters, width, height. \\ 
          \hline
@@ -35,7 +43,7 @@
          \hline
         \end{tabular}
     \end{center}
-    \caption{Available Metadata} % this table is referenced in the data chapter
+    \caption{Data Fields descriptions \autocite{poloclub-diffusiondb}} % this table is referenced in the data chapter
     \label{metadata}
 \end{table}
 
@@ -46,6 +54,16 @@
     \end{center}
 \caption{An example of a prompt with several specifier clauses \autocite{poloclub-diffusiondb}} % this table is referenced in the data chapter
 \label{specifier_example}
+\end{figure}
+
+
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[height=7cm]{Bilder/Uni-L.png}\\[2.5ex]
+    \end{center}
+\caption{An example image}
+\label{example_image}
 \end{figure}
 
 
