@@ -1,23 +1,23 @@
 \chapter{Discussion}
 \label{cha:Discussion}
-Discussion
+
+The results of the correlation of artist rank and dissimilarity show a relation between an artist's popularity and style references. More popular artists' prompts resemble the prompts in which they are not mentioned more closely than the prompts of less popular artists. More popular artists are essentially more independent of style mentions than less popular artists. With the analysis the original hypothesis can be rejected. Thus the most popular artist are not mentioned to specifically replicate artworks in their characteristic style. They are rather included for other reasons, to a large part.
+
+The analysis delivers clear results, however during this process some limitations and areas of improvement were identified. I believe these limitations would be worth investigating in the future.
 
 
 \section{Areas of improvement}
 
-Some artist's mentions were caused by a few or even just a single user. The popularity and style distributions for these artists might not be representative of the broader community. A further analyis and filtering of artists could prove usefull and might even affect the results of the dissimilarity analysis.
+Further analysis and filtering of artists and prompts could prove useful and might even effect the results of the dissimilarity analysis. I found three reasons for removing certain artists and prompts before carrying out the dissimilarity analysis:
 
-There are prompts which mention a lot of different styles, the maximum amount of style mentions in a single prompt is 30. A further analyis and removal of outlier prompts could prove usefull and might even affect the results of the dissimilarity analysis.
+\begin{itemize}
+    \item Some artists' mentions were caused by a few or even just a single user. The popularity and style distributions for these artists might not be representative of the broader community.
+    \item There are prompts that mention a lot of different styles. The maximum amount of style mentions in a single prompt is 30. These outliers could skew the results of the analysis.
+    \item Many artists have a high dissimilarity value by virtue of having a low amount of style mentions. These artists could also be disqualified for the analysis, similarly to artists without style mentions.
+\end{itemize}
 
-The artists with the highest dissimilarity are mostly artists with a low amount of mentions/style mentions.  .....
-TODO fix these sentences
+Other methods for characterizing the artists could also be explored, such as the use of topic modelling.
 
 
 
-
-TODO:
-
-These results are then interpreted in a discussion to
-answer the initial research question. You summarize your
-main insights and also potential limitations of the approach
-as conclusions.
+% These results are then interpreted in a discussion to answer the initial research question. You summarize your main insights and also potential limitations of the approach as conclusions.

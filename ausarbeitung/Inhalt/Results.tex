@@ -5,9 +5,9 @@
 
 \section{Data Exploration}
 
-About 45\% of the 1.8 Million prompts mention at least one artist and only 13\% of all prompts mention a style. 8\% of all prompts mention both a style and an artist, which means that 61\% of prompts with style mentions also mention at least one artist. We thus have to note, that we are in essence only using 8\% of all prompts in the dataset for the artist characterizations and subsequent dissimilarity analysis.
+About 45\% of the 1.8 Million prompts mention at least one artist and only 13\% of all prompts mention a style. 8\% of all prompts mention both a style and an artist, which means that 61\% of prompts with style mentions also mention at least one artist. We thus have to note that we are in essence only using 8\% of all prompts in the dataset for the artist characterizations and subsequent dissimilarity analysis.
 
-A total of YYY artists qualify for the artist characterization and dissimilarity analysis since they were mentioned in prompts, that included style mentions.
+A total of 2104 artists qualify for the artist characterization and dissimilarity analysis since they were mentioned in prompts that included style mentions.
 
 \begin{figure}[h]
     \begin{center}
@@ -18,7 +18,7 @@ A total of YYY artists qualify for the artist characterization and dissimilarity
 
 \subsection{Artist Mentions}
 
-Out of the 3477 artists from the artist dataset, 2825 were mentioned in the prompt dataset. The amount of mentions of the individual artists varies drastically, it appears to follow a Zipf distribution, similar to words in a corpus. The top 10 artists with the most mentions are shown in \ref{fig:top10_artists}, they make up a large share of the total artist mentions. The most mentioned artist 'Greg Rutkowski' appears in about 10\% of all prompts.
+Out of the 3477 artists from the artist dataset, 2825 were mentioned in the prompt dataset. The amount of mentions of the individual artists vary drastically. It appears to follow a Zipf distribution, similar to words in a corpus. The top 10 artists with the most mentions are shown in \ref{fig:top10_artists}. They make up a large share of the total artist mentions. The most mentioned artist 'Greg Rutkowski' appears in about 10\% of all prompts.
 
 \begin{figure}[h]
     \begin{center}
@@ -56,7 +56,9 @@ Out of the 3477 artists from the artist dataset, 2825 were mentioned in the prom
 
 \section{Artist Characterization}
 
-The dissimilarity computations for the artists with the highest and lowest dissimiliarity are shown below. The artist with the highest dissimiliarity is '...', this artist is only mentioned in xx prompts and only has a single style mention. Any artist with such low amounts of mentions and style mentions
+The dissimilarity computations for the artists with the highest and lowest dissimilarity are shown below. The artist with the highest dissimilarity is 'João Artur da Silva'. This artist is only mentioned in 2 prompts and only has a single style mention. 'João Artur da Silva' has a dissimilarity value of 1, meaning there is no overlap between the style proportions in the corpus and negative corpus. 'João Artur da Silva' is ranked at position 2417 in the dataset by mentions. Any artist with such low amounts of artist and style mentions will necessarily have a high dissimilarity value since such low amounts of mentions are not able to express the more complex distribution of the negative corpus.
+
+The artist with the lowest dissimilarity value is 'Stanley Lau', also called 'Artgerm'. 'Stanley Lau' is the third most popular artist by mentions, he is an illustrator and produces art for giants in the entertainment and gaming industry.
 
 \begin{figure}[h]
     \begin{center}
@@ -76,11 +78,10 @@ The dissimilarity computations for the artists with the highest and lowest dissi
 
 \section{Dissimilarity correlation results}
 
-When plotting the dissimilarity values of artists sorted by their popularity, we can notice there is a relation between the rank and dissimilarity. The dissimilarity tends to increase with lower artist popularity, however this relationship does not look very strong.
-The Spearman's rank correlation coefficient produces an \(r_s\) value of XXX, indicating ...
-The \(p\) value of the hypothesis test is XXX, this means the Null hypothesis can be rejected with a significance level of 0.05. We can thus conclude that there is a correlation between the popularity of an artist and the dissimilarity of the artist to other artists.
+When plotting the dissimilarity values of artists sorted by their popularity, we can notice there is a relation between popularity and dissimilarity. The dissimilarity tends to increase with lower artist popularity, this relationship does not look very strong, however.
+The Spearman's rank correlation coefficient produces an \(r_s\) value of 0.459, indicating a positive correlation between the popularity of an artist and the dissimilarity between the artists' corpus and negative corpus. This means less popular artists tend to have a higher dissimilarity value.
+The \(p\) value of the hypothesis test is 7.867e-181, this means the null hypothesis can be rejected with a significance level of 0.05. We can thus conclude that a correlation most likely exists between the two variables.
 
-TODO fix the XXX and sentence above
 
 \begin{figure}[h]
     \begin{center}
@@ -95,18 +96,12 @@ TODO fix the XXX and sentence above
 % we need a small p value to reject
 
 
+%By using your method on your data, you will produce some
+%results (numbers, plots, etc.). Please note that any scripts
+%you will generate during the project should also be briefly
+%mentioned in the documentation. However, please do not
+%put source code in the documentation. Rather share with
+%us any scripts (and datasets) you create by means of a
+%repository.
 
-
-TODO:
-
-By using your method on your data, you will produce some
-results (numbers, plots, etc.). Please note that any scripts
-you will generate during the project should also be briefly
-mentioned in the documentation. However, please do not
-put source code in the documentation. Rather share with
-us any scripts (and datasets) you create by means of a
-repository.
-
-TODO 15-20 Seiten
-
-% TODO Bilder zusammenschneiden (Rand wegmachen)
+% 15-20 Seiten
