@@ -49,3 +49,7 @@ Playbooks written by Moritz
 ### dokumente
 
 Documents created together by Moritz Weinrich and I
+
+### ausarbeitung
+
+ausarbeitung contains the files necessary to build the report using Latex.
