@@ -53,3 +53,7 @@ Documents created together by Moritz Weinrich and I
 ### ausarbeitung
 
 ausarbeitung contains the files necessary to build the report using Latex.
+
+### results
+
+some playbooks save result dataframes to this directory
