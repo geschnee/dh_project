@@ -48,4 +48,4 @@ Playbooks written by Moritz
 
 ### dokumente
 
-Documents created together Moritz Weinrich and I
+Documents created together by Moritz Weinrich and I
