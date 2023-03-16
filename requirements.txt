@@ -3,5 +3,8 @@ plotly
 seaborn
 matplotlib
 numpy
+scikit-learn
+
+# The next packages are only used in playbooks with a leading underscore, see readme.md for details
 networkx
 wordcloud

@@ -1,25 +1,51 @@
-# Title
+# Investigating artist and style mentions in Diffusion Model prompts
 
-## Artist Dataset
+This is the repo for my digital humanities project, the final report is availible [here](report.pdf)
 
-mention where to find the modified artist dataset
+The project explores stable diffusion prompts and investigaes how artists are mentioned by users.
+
+## Datasets
+
+### Prompt Dataset
+
+The project used a dataset of stable diffusion prompts. This dataset is available at [Huggingface](https://huggingface.co/datasets/poloclub/diffusiondb/blob/main/metadata-large.parquet). The most recent version of this dataset was downloaded ([Commit 1622615f9b0b2a964ec82da0a63b4b20982243ea](https://huggingface.co/datasets/poloclub/diffusiondb/commit/1622615f9b0b2a964ec82da0a63b4b20982243ea)).
+
+
+:heavy_exclamation_mark: The file metadata-large.parquet has to be downloaded separately and placed in the sources folder.
+
+### Artist Dataset
+
+A dataset of artists is used in this project, the original dataset has been saved to [sources](sources/Image Synthesis Style Studies Database (The List).xlsx). This datset was downloaded from [here](https://docs.google.com/spreadsheets/d/14xTqtuV3BuKDNhLotB_d1aFlBGnDJOY0BRXJ8-86GpA/edit#gid=0).
+
+The dataset was then modified for the purpose of this project, the modified version is available in this repo [here](sources/artist_info.csv).
+
+
+
 
 ## Notebooks
 
-and which files produced the results of this project.
+The motebooks and code of this project are available in the notebooks_and_code directory.
+The notebooks in there were used for producing the results and images of the project.
+The Images are automatically saved to the images folder.
 
 
+Notebooks and Python files with a leading underscore did not directly contribute to the project. Most of these notebooks were used in the exploratory phase of this project. Different methodologies were explored in thee playbooks.
 
-### other notebooks
-
-notebooks that were not used for the final paper
-
-
+:heavy_exclamation_mark: The Preprocessing.ipynb playbook has to be executed first, it creates files that are used by the other playbooks.
 
 ## Installation Instructions
 
-The readme file describes how to get the code running 
+The notebooks require a Jupyter environment with the packages listed in requirements.txt installed.
 
-also explain to download the prompt files
+:heavy_exclamation_mark: The **Prompt Dataset** also has to be downloaded before running the code, see readme section **Prompt Dataset**.
 
-https://huggingface.co/datasets/poloclub/diffusiondb
+
+## other repo content
+
+### Moritz
+
+Playbooks written by Moritz
+
+### dokumente
+
+Documents created together Moritz Weinrich and I

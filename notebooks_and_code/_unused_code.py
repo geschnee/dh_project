@@ -1,15 +1,3 @@
-from difflib import SequenceMatcher as SM
-
-def read_lines_as_list(filename):
-    result = []
-    f = open(filename, "r")
-    for x in f.readlines():
-      n = x[0:-1]
-      if len(n) >= 2:
-          result.append(n)
-    
-    return result
-
 def artist_included_fuzzy(ga, parts, similarity_threshold):
     artist_components = [x for x in re.split(';|,|\.| |:|-', ga) if len(x)>0]
     components_found = 0
@@ -34,17 +22,6 @@ def extract_artists_fuzzy(str, given_artists, similarity_threshold):
             artists.append(ga)
     
     return artists
-
-def extract_artists_exact(str, given_artists):
-    artists = []
-    str = str.lower()
-    
-    for gp in given_artists:
-        if gp in str:
-            artists.append(gp)
-    
-    return artists
-
 
 
 def extract_artists_fuzzy_test():
@@ -80,44 +57,7 @@ def extract_artists_fuzzy_test():
     assert search == ["vincent van gogh"], f'search is {search}'
 
     print("All tests passed")
-
-def artist_in_list(l, artist):
-    l = l.tolist()
-    #rint(l)
-    assert type(l) == list, f'type is {type(l)}'
-    if artist in l:
-       #print(f'fnd in {l}')
-        return True
-    else:
-        return False
     
-def exact_match_dataframe(df, name):
-    name = name.lower()
-    result = df.copy()
-   #result['included'] = result['artists'].map(
-   #    lambda artists: artist_in_list(artists, name))
-    result['included'] = result['artists'].map(
-       lambda artists: True if name in artists.tolist() else False)
-    #print(result)
-    assert "included" in result.columns, f'included is not in {result.columns}'
-   #print(f'result columns {result.columns}')
-    result = result.loc[result['included'] == True]
-    return result
-
-
-
-def search_prompt_splits(df, str):
-    str = str.lower()
-    result = df.copy()
-    result['included'] = result['prompt'].map(
-       lambda prompt: True if str in re.split(';|,|\.| |:|-', prompt.lower()) else False)
-    #print(result)
-    assert "included" in result.columns, f'included is not in {result.columns}'
-   #print(f'result columns {result.columns}')
-    result = result.loc[result['included'] == True]
-    return result
 
 if __name__ == "__main__":
     extract_artists_fuzzy_test()
-
-

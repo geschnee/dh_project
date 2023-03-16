@@ -19,8 +19,6 @@ for name in excel_artist_names:
     
     c+=1
     
-    #if c == 15:
-    #      break
     new_row = dict()
     new_row['artist'] = name
     mdf = my_utils.exact_match_dataframe(exact_matches, name)
